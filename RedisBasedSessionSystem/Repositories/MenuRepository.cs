@@ -23,6 +23,6 @@ public class MenuRepository : IMenuRepository
         var menuData = await _db.StringGetAsync($"menu:{role}");
         if (string.IsNullOrEmpty(menuData)) return new List<object>();
 
-        return JsonSerializer.Deserialize<List<object>>(menuData) ?? new List<object>();
+        return JsonSerializer.Deserialize<List<object>>(menuData!) ?? new List<object>();
     }
 }
